@@ -24,9 +24,16 @@ public class FeedReaderMain {
 
 			// Llamar al Parser especifico para extraer los datos necesarios por la aplicacion, instanciar los feeds e imprimirlos
 			for(RoughFeed roughFeed : roughFeeds){
-				RssParser rssParser = new RssParser(roughFeed);
-				Feed feed = rssParser.parse();
-				feed.prettyPrint();
+				if(roughFeed.getUrlType() == "rss"){
+					RssParser rssParser = new RssParser(roughFeed);
+					Feed feed = rssParser.parse();
+					feed.prettyPrint();
+				} else if (roughFeed.getUrlType() == "reddit"){
+					RedditParser redditParser = new RedditParser(roughFeed);
+					Feed feed = redditParser.parse();
+					feed.prettyPrint();
+				}
+				
 			}
 		} else if (args.length == 1){
 			
