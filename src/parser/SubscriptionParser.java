@@ -1,51 +1,66 @@
 package parser;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.json.JSONArray;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.FileReader;
+import subscription.*;
 
 /*
  * Esta clase implementa el parser del  archivo de suscripcion (json)
  * Leer https://www.w3docs.com/snippets/java/how-to-parse-json-in-java.html
  * */
-import org.json.JSONObject;
-import org.json.JSONArray;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class SubscriptionParser extends GeneralParser{
-    public JSONObject ParserJson(String filePath) throws IOException { // Devuelve un JSONObject con el contenido del archivo
-        String StingJson = new String(Files.readAllBytes(Paths.get(filePath)));
-        JSONObject json = new JSONObject(StingJson);
-        return json;
-    }
-    public JSONArray filterUrlsByType(JSONObject json, String urlType){ // Devuelve un JSONArray con las urls filtradas por tipo
-        JSONArray filteredUrls = new JSONArray();
-        for (int i = 0 ; i < json.length() ; i++) { //Me fijo en cada suscripcion
-            JSONObject subs = json.getJSONObject("subscriptions");
-            String urlT = subs.getString("urlType");
-            if (urlT.equals(urlType)){//Si es del tipo que busco es el mismo que el que me pasaron
-                JSONArray Params = subs.getJSONArray("urlParams");
-                String url = subs.getString("url");
-                for (int j = 0 ; j < Params.length() ; j++){ // Me fijo en cada parametro de la suscripcion y lo agrego a la url filtrada
-                    String param = Params.getString(j);
-                    filteredUrls.put(url.replace("%s", param)); // Reemplazo el %s por el parametro
-                }
-            }
-        }
-        return  filteredUrls;
+    private String path;
+
+    public SubscriptionParser(String path) {
+        this.path = path;
     }
 
-    @Override
-    public JSONObject responseParser(JSONObject json) {
-        JSONArray rssUrls = filterUrlsByType(json, "rss");
-        JSONArray redditUrls = filterUrlsByType(json, "reddit");
-        JSONObject response = new JSONObject();
-        response.put("rss", rssUrls);
-        response.put("reddit", redditUrls);
-        System.out.println(response.toString());
-        return response;
-    }
-    @Override
-    public JSONObject FileParser(String filePath) throws IOException{
-        JSONObject json = ParserJson(filePath); // Obtenemos el JSON del path
-        return responseParser(json); // Devolvemos la respuesta
+    public Subscription parse() {
+        Subscription subscription = new Subscription(this.path); // No entiendo para que se usa el path en el constructor
+ 
+        // Manejo del archivo de suscripciones
+        FileReader reader;
+        try{
+            reader = new FileReader(this.path);
+        } catch (Exception e){
+            System.out.println("Error al abrir el archivo de suscripciones");
+            e.printStackTrace();
+            return null;
+        }
+
+        JSONTokener tokener = new JSONTokener(reader);
+        JSONArray jsonArray = new JSONArray(tokener);
+
+        // Itero sobre cada una de las suscripciones
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+            // Obtengo los atributos de la suscripcion
+            String url = jsonObject.getString("url");
+            String urlType = jsonObject.getString("urlType");
+            // Transformo el JSONArray de los parámetros de la subscripción en un List<String>
+            JSONArray urlParams = jsonObject.getJSONArray("urlParams");
+            List<String> urlParamsList = new ArrayList<String>();
+            for(int j = 0; j < urlParams.length(); j++){
+                urlParamsList.add(urlParams.getString(j));
+            }
+
+            // Creo la suscripción single y la agrego a la lista de suscripciones
+            SingleSubscription singleSubscription = new SingleSubscription(url, urlParamsList, urlType);
+            subscription.addSingleSubscription(singleSubscription);
+        }
+
+        try {
+            reader.close(); // Cierro el archivo
+        } catch (Exception e){
+            System.out.println("Error al cerrar el archivo de suscripciones");
+            e.printStackTrace();
+            return null;
+        }
+        return subscription; // Devuelvo todas las suscripciones
     }
 }
