@@ -1,3 +1,14 @@
+import parser.*;
+import subscription.*;
+import httpRequest.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import feed.Feed;
+import feed.Article;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class FeedReaderMain {
 
@@ -8,15 +19,21 @@ public class FeedReaderMain {
 	public static void main(String[] args) {
 		System.out.println("************* FeedReader version 1.0 *************");
 		if (args.length == 0) {
-
-			/*
-			Leer el archivo de suscription por defecto;
-			Llamar al httpRequester para obtenr el feed del servidor
-			Llamar al Parser especifico para extrar los datos necesarios por la aplicacion 
-			Llamar al constructor de Feed
-			LLamar al prettyPrint del Feed para ver los articulos del feed en forma legible y amigable para el usuario
-			*/
 			
+			// Leer el archivo de suscription por defecto y parsearlo
+			SubscriptionParser subscriptionParser = new SubscriptionParser("config\\subscriptions.json");
+			Subscription subscription = subscriptionParser.parse();
+
+			// Llamar al httpRequester para obtener el feed del servidor
+			httpRequester httpRequester = new httpRequester(subscription);
+			List<RoughFeed> roughFeeds = httpRequester.getFeeds();
+
+			// Llamar al Parser especifico para extraer los datos necesarios por la aplicacion, instanciar los feeds e imprimirlos
+			for(RoughFeed roughFeed : roughFeeds){
+				RssParser rssParser = new RssParser(roughFeed);
+				Feed feed = rssParser.parse();
+				feed.prettyPrint();
+			}
 		} else if (args.length == 1){
 			
 			/*

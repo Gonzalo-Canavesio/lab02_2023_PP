@@ -2,8 +2,6 @@ package parser;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONArray;
-import java.util.List;
-import java.util.ArrayList;
 import java.io.FileReader;
 import subscription.*;
 
@@ -44,13 +42,13 @@ public class SubscriptionParser extends GeneralParser{
             String urlType = jsonObject.getString("urlType");
             // Transformo el JSONArray de los parámetros de la subscripción en un List<String>
             JSONArray urlParams = jsonObject.getJSONArray("urlParams");
-            List<String> urlParamsList = new ArrayList<String>();
+            // Creo la suscripción single
+            SingleSubscription singleSubscription = new SingleSubscription(url, null, urlType);
+            // Agrego los parámetros de la suscripción single
             for(int j = 0; j < urlParams.length(); j++){
-                urlParamsList.add(urlParams.getString(j));
+                singleSubscription.setUrlParams(urlParams.getString(j));
             }
-
-            // Creo la suscripción single y la agrego a la lista de suscripciones
-            SingleSubscription singleSubscription = new SingleSubscription(url, urlParamsList, urlType);
+            // Agrego la suscripción single a la suscripción
             subscription.addSingleSubscription(singleSubscription);
         }
 
