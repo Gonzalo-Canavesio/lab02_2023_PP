@@ -14,10 +14,10 @@ import java.util.Date;
 import java.util.Locale;
 
 /* Esta clase implementa el parser de feed de tipo rss (xml)
- * https://www.tutorialspoint.com/java_xml/java_dom_parse_document.htm 
+ * https://www.tutorialspoint.com/java_xml/java_dom_parse_document.htm
  * */
 
-public class RssParser extends GeneralParser {
+public class RssParser extends GeneralParser implements FeedParser{
 
     protected RoughFeed roughFeed;
 
@@ -53,7 +53,7 @@ public class RssParser extends GeneralParser {
                 } catch (Exception e) {
                     System.out.println("Error al parsear el feed rss");
                     e.printStackTrace();
-                } 
+                }
             }
         return feed;
     }
