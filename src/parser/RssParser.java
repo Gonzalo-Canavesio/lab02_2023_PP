@@ -1,5 +1,4 @@
 package parser;
-import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -8,8 +7,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.StringReader;
 import org.xml.sax.InputSource;
-import java.util.HashMap;
-import java.util.Map;
 import httpRequest.RoughFeed;
 import feed.*;
 import java.text.SimpleDateFormat;
