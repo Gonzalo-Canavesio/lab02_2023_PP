@@ -5,8 +5,13 @@
         "urlType": "rss"
     },
     {
-        "url": "https://www.reddit.com/r/%s/hot/.json?count=100",
-        "urlParams": ["Marketing", "Sales", "Entrepreneur", "Startups"],
+        "url": "https://www.chicagotribune.com/arcio/rss/category/%s/?query=display_date:[now-2d+TO+now]&sort=display_date:desc",
+        "urlParams": ["sports", "business"],
+        "urlType": "rss"
+    },
+    {
+        "url": "https://www.reddit.com/r/%s/hot/.json?limit=10",
+        "urlParams": ["Marketing", "Sales", "Entrepreneur", "Startups", "Android", "OddlySatisfaying"],
         "urlType": "reddit"
     }
 ]

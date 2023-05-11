@@ -36,7 +36,7 @@ public class RssParser extends GeneralParser implements FeedParser{
             System.out.println("Error al parsear el feed rss");
             e.printStackTrace();
         }
-        Feed feed = new Feed(doc.getElementsByTagName("title").item(0).getTextContent());
+        Feed feed = new Feed(doc.getElementsByTagName("title").item(0).getTextContent()+ " ("+roughFeed.getUrlParam() + " - " + roughFeed.getUrlType()+")");
         NodeList nList = doc.getElementsByTagName("item");
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = (Node) nList.item(i);
