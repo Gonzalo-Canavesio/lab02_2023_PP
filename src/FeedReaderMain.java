@@ -37,6 +37,7 @@ public class FeedReaderMain {
                 FeedParser parser = createParser(roughFeed);
                 try {
                     Feed feed = parser.parse();
+					feed.setSiteName(feed.getSiteName()+" - "+roughFeed.getUrlType());
                     feed.prettyPrint();
                 } catch(Exception e){
                     e.printStackTrace();

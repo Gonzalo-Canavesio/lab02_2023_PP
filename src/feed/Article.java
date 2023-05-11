@@ -97,11 +97,10 @@ public class Article {
 
 	
 	public void prettyPrint() {
-		System.out.println("**********************************************************************************************");
 		System.out.println("Title: " + this.getTitle());
 		System.out.println("Publication Date: " + this.getPublicationDate());
 		System.out.println("Link: " + this.getLink());
-		System.out.println("Text: " + this.getText());
+		System.out.println("Text: " + (this.getText().length() > 256 ? this.getText().substring(0, 255) + "..." : this.getText()).replace("\n", " "));
 		System.out.println("**********************************************************************************************");
 		
 	}

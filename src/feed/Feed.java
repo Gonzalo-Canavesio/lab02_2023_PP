@@ -50,6 +50,9 @@ public class Feed {
 	
 
 	public void prettyPrint(){
+		System.out.println("**********************************************************************************************");
+		System.out.println("Feed: " + this.getSiteName());
+		System.out.println("**********************************************************************************************");
 		for (Article a: this.getArticleList()){
 			a.prettyPrint();
 		}
