@@ -1,4 +1,8 @@
 import parser.*;
+import parser.feedParser.FeedParser;
+import parser.feedParser.RedditParser;
+import parser.feedParser.RssParser;
+import parser.subscriptionParser.SubscriptionParser;
 import subscription.*;
 import httpRequest.*;
 import namedEntity.NamedEntity;
