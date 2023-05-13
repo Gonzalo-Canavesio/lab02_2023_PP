@@ -3,12 +3,12 @@ package namedEntity;
 
 /*Esta clase modela la nocion de entidad nombrada*/
 
-public class NamedEntity {
+public class EntidadNombrada {
 	String name;
 	String category; 
 	int frequency;
 	
-	public NamedEntity(String name, String category, int frequency) {
+	public EntidadNombrada(String name, String category, int frequency) {
 		super();
 		this.name = name;
 		this.category = category;
@@ -50,20 +50,21 @@ public class NamedEntity {
 	public void prettyPrint(){
 		System.out.println(this.getName() + " " + this.getFrequency());
 	}
+}
 
-	public class persona extends NamedEntity{
+	public class persona extends EntidadNombrada{
 		private int id;
 		public persona(String name, String category, int frequency, int id) {
 			super(name, category, frequency);
 			this.id = id;
 		}
 	}
-	public class lugar extends NamedEntity{
+	public class lugar extends EntidadNombrada{
 		public lugar(String name, String category, int frequency, int id) {
 			super(name, category, frequency);
 		}
 	}
-	public class organizacion extends NamedEntity{
+	public class organizacion extends EntidadNombrada{
 		private int NroMiembros;
 		private String tipoOrg;
 		public organizacion(String name, String category, int frequency, int NroMiembros, String tipoOrg){
@@ -72,7 +73,7 @@ public class NamedEntity {
 			this.tipoOrg = tipoOrg;
 		}
 	}
-	public class producto extends NamedEntity{
+	public class producto extends EntidadNombrada{
 		private String Comercial;
 		private String Productor;
 		public producto(String name, String category, int frequency, String Comercial, String Productor) {
@@ -81,7 +82,7 @@ public class NamedEntity {
 			this.Productor = Productor;
 		}
 	}
-	public class evento extends NamedEntity{
+	public class evento extends EntidadNombrada{
 		private String fecha;
 		private int recurrente;
 		public evento(String name, String category, int frequency, String fecha, int recurrente) {
@@ -90,14 +91,14 @@ public class NamedEntity {
 			this.recurrente = recurrente;
 		}
 	}
-	public class fecha extends NamedEntity{
+	public class fecha extends EntidadNombrada{
 		private String fechaPrecisa;
 		public fecha(String name, String category, int frequency, String fechaPrecisa) {
 			super(name, category, frequency);
 			this.fechaPrecisa = fechaPrecisa;
 		}
 	}
-	public class otro extends NamedEntity {
+	public class otro extends EntidadNombrada {
 		private String Comments;
 		public otro(String name, String category, int frequency, String Comments) {
 			super(name, category, frequency);
@@ -154,7 +155,9 @@ public class NamedEntity {
 			this.ciudad = ciudad;
 		}
 	}
-}
 
+public class EntidadNombradaFutbol extends EntidadNombrada implements Futbol{
+	
+}
 
 
