@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import namedEntity.NamedEntity;
+import namedEntity.EntidadNombrada;
 import namedEntity.heuristic.Heuristic;
 
 /*Esta clase modela el contenido de un articulo (ie, un item en el caso del rss feed) */
@@ -15,7 +15,7 @@ public class Article {
 	private Date publicationDate;
 	private String link;
 	
-	private List<NamedEntity> namedEntityList = new ArrayList<NamedEntity>();
+	private List<EntidadNombrada> namedEntityList = new ArrayList<EntidadNombrada>();
 	
 	
 	public Article(String title, String text, Date publicationDate, String link) {
@@ -66,8 +66,8 @@ public class Article {
 	
 	
 	
-	public NamedEntity getNamedEntity(String namedEntity){
-		for (NamedEntity n: namedEntityList){
+	public EntidadNombrada getNamedEntity(String namedEntity){
+		for (EntidadNombrada n: namedEntityList){
 			if (n.getName().compareTo(namedEntity) == 0){				
 				return n;
 			}
@@ -85,9 +85,9 @@ public class Article {
 			
 		for (String s: text.split(" ")) {
 			if (h.isEntity(s)){
-				NamedEntity ne = this.getNamedEntity(s);
+				EntidadNombrada ne = this.getNamedEntity(s);
 				if (ne == null) {
-					this.namedEntityList.add(new NamedEntity(s, null,1));
+					this.namedEntityList.add(new EntidadNombrada(s, null,1));
 				}else {
 					ne.incFrequency();
 				}
