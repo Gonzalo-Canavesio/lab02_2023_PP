@@ -30,7 +30,7 @@ public class FeedReaderMain {
 
 	public static void main(String[] args) {
 		System.out.println("************* FeedReader version 1.0 *************");
-		if (args.length == 1) {
+		if (args.length == 0) {
 
 			// Leer el archivo de suscription por defecto y parsearlo
 			JSONParser subscriptionParser = new JSONParser();
@@ -48,7 +48,7 @@ public class FeedReaderMain {
 				}
 			}
 
-		} else if (args.length == 0){
+		} else if (args.length == 1 && args[0].equals("-ne")){
 
 			// Leer el archivo de suscription por defecto y parsearlo
 			JSONParser subscriptionParser = new JSONParser();
