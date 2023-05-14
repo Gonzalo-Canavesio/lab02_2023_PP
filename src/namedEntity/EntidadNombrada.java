@@ -2,6 +2,7 @@ package namedEntity;
 
 import namedEntity.heuristic.Heuristic;
 import namedEntity.heuristic.QuickHeuristic;
+import java.lang.reflect.Field;
 
 /*Esta clase modela la nocion de entidad nombrada*/
 
@@ -60,9 +61,25 @@ public class EntidadNombrada {
 	public String toString() {
 		return "ObjectNamedEntity [name=" + name + ", frequency=" + frequency + "]";
 	}
+
 	public void prettyPrint(){
-		System.out.println(this.getName() + " " + this.getFrequency());
-	}
+        Class<?> clazz = getClass();
+        Field[] fields = clazz.getDeclaredFields();
+
+        for (Field field : fields) {
+            field.setAccessible(true); // Enable access to private fields
+
+            String fieldName = field.getName();
+            Object fieldValue;
+            try {
+                fieldValue = field.get(this); // Get the field value for the current instance
+            } catch (IllegalAccessException e) {
+                fieldValue = "N/A";
+            }
+
+            System.out.println(fieldName + ": " + fieldValue);
+        }
+    }
 
 	public void setTema(String tema) {
         this.tema = tema;
