@@ -56,3 +56,8 @@ class direccion extends lugar{
     }
 }
 
+class OtroLugar extends lugar{
+    OtroLugar(String name, String category, int frequency, int id) {
+        super(name, category, frequency, id);
+    }
+}

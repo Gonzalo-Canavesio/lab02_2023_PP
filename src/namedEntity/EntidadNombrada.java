@@ -7,6 +7,7 @@ public class EntidadNombrada {
 	String name;
 	String category;
 	int frequency;
+	String tema;
 
 	public EntidadNombrada(String name, String category, int frequency) {
 		super();
@@ -49,6 +50,14 @@ public class EntidadNombrada {
 	}
 	public void prettyPrint(){
 		System.out.println(this.getName() + " " + this.getFrequency());
+	}
+
+	public void setTema(String tema) {
+        this.tema = tema;
+	}
+
+	public String getTema() {
+        return this.tema;
 	}
 }
 
