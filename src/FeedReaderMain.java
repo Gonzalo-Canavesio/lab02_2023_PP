@@ -73,8 +73,7 @@ public class FeedReaderMain {
 			// Imprimir las entidades nombradas
 			Article articuloVacio = new Article(null, null, null, null);
 			articuloVacio.prettyPrintNamedEntities();
-			EntidadNombrada entidadNombrada = new EntidadNombrada(null, null, 0);
-			System.out.println("Total de entidades nombradas: " + (entidadNombrada.getEntidadNombradaFrequency()-1));
+			// TODO: Imprimir las frecuencias de las entidades nombradas		
 		}else {
 			printHelp();
 		}

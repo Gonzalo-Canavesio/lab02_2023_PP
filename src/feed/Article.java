@@ -87,7 +87,7 @@ public class Article {
 			if (h.isEntity(s)){
 				EntidadNombrada ne = this.getNamedEntity(s);
 				if (ne == null) {
-					ne = ne.createEntity(s, h.getCategory(s));
+					ne = ne.createEntity(s);
 				}else {
 					ne.incFrequency();
 				}

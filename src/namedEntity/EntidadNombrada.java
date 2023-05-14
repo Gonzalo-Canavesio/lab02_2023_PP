@@ -1,5 +1,7 @@
 package namedEntity;
 
+import namedEntity.heuristic.Heuristic;
+import namedEntity.heuristic.QuickHeuristic;
 
 /*Esta clase modela la nocion de entidad nombrada*/
 
@@ -70,42 +72,15 @@ public class EntidadNombrada {
         return this.tema;
 	}
 
-	public EntidadNombrada createEntity(String namedEntity, String category){
+	public EntidadNombrada createEntity(String namedEntity){
 		EntidadNombrada ne;
+		Heuristic h = new QuickHeuristic(); // Da igual que heuristica se use, ya que solo se usa para obtener la categoria
+		String category = h.getCategory(namedEntity);
+		// TODO: Crear una entidad nombrada de la categoria correspondiente y devolverla (Ver como hacer para que el constructor no de problema)
 		if(category == null){
 			ne = new EntidadNombrada(namedEntity, "unknown", 1);
 		} else if(category == "persona"){
 			ne = new persona(namedEntity, "persona", 1, 0);
-		} else if(category == "lugar"){
-			ne = new lugar(namedEntity, "lugar", 1);
-		} else if(category == "organizacion"){
-			ne = new organizacion(namedEntity, "organizacion", 1);
-		} else if(category == "empresa"){
-			ne = new empresa(namedEntity, "empresa", 1);
-		} else if(category == "producto"){
-			ne = new producto(namedEntity, "producto", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "evento"){
-			ne = new evento(namedEntity, "evento", 1);
-		} else if(category == "tiempo"){
-			ne = new tiempo(namedEntity, "tiempo", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
-		} else if(category == "obra"){
-			ne = new obra(namedEntity, "obra", 1);
 		} else {
 			ne = new EntidadNombrada(namedEntity, "unknown", 1);
 		}

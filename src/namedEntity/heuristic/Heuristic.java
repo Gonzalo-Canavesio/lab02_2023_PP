@@ -1,22 +1,24 @@
 package namedEntity.heuristic;
 
-import namedEntity.*;
 import java.util.Map;
+import java.util.HashMap;
 
 public abstract class Heuristic {
 
-	private static Map<String, String> categoryMap = Map.of(
-			"Microsft", "Company", 
-			"Apple", "Company", 
-			"Google", "Company",
-			"Musk", "Person",
-			"Biden", "Person",
-			"Trump", "Person",
-			"Messi", "Person",
-			"Federer", "Person",
-			"USA", "Country",
-			"Russia", "Country"
-			);
+	// TODO: Crear un map que asocie el string de una entidad con un map (o un array) que contenga su categoria y otros datos para rellenar sus atributos
+	
+	// Map.of(
+	// 		"Microsft", "Company", 
+	// 		"Apple", "Company", 
+	// 		"Google", "Company",
+	// 		"Musk", "Person",
+	// 		"Biden", "Person",
+	// 		"Trump", "Person",
+	// 		"Messi", "Person",
+	// 		"Federer", "Person",
+	// 		"USA", "Country",
+	// 		"Russia", "Country"
+	// 		);
 	
 	
 	public String getCategory(String entity){
