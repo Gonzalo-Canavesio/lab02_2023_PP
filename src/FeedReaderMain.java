@@ -3,6 +3,9 @@ import parser.feedParser.RssParser;
 import parser.subscriptionParser.JSONParser;
 import subscription.*;
 import httpRequest.*;
+import namedEntity.EntidadNombrada;
+import namedEntity.heuristic.Heuristic;
+import namedEntity.heuristic.QuickHeuristic;
 import feed.*;
 import java.util.List;
 
@@ -27,7 +30,7 @@ public class FeedReaderMain {
 
 	public static void main(String[] args) {
 		System.out.println("************* FeedReader version 1.0 *************");
-		if (args.length == 0) {
+		if (args.length == 1) {
 
 			// Leer el archivo de suscription por defecto y parsearlo
 			JSONParser subscriptionParser = new JSONParser();
@@ -45,56 +48,33 @@ public class FeedReaderMain {
 				}
 			}
 
-		} else if (args.length == 1){
+		} else if (args.length == 0){
 
 			// Leer el archivo de suscription por defecto y parsearlo
-			// SubscriptionParser subscriptionParser = new SubscriptionParser("config/subscriptions.json");
-			// Subscription subscription = subscriptionParser.parse();
+			JSONParser subscriptionParser = new JSONParser();
+			Subscription subscription = subscriptionParser.parse("config/subscriptions.json");
 
-			// // Llamar al httpRequester para obtener el feed del servidor
-			// httpRequester httpRequester = new httpRequester(subscription);
-			// List<RoughFeed> roughFeeds = httpRequester.getFeeds();
+			// Llamar al httpRequester para obtener el feed del servidor
+			httpRequester httpRequester = new httpRequester(subscription);
+			List<RoughFeed> roughFeeds = httpRequester.getFeeds();
 
-			// Map<String,EntidadNombrada> namedEntities = new HashMap<String,EntidadNombrada>();
-			// Heuristic heuristic = new QuickHeuristic();
-			// // Llamar al Parser especifico para extraer los datos necesarios por la aplicacion, instanciar los feeds y analizarlos con la heuristica
-			// for(RoughFeed roughFeed : roughFeeds){
-            //     FeedParser parser = createParser(roughFeed);
-			// 	// Si el feed es de tipo reddit, no se analiza ya que genera demasiado ruido
-			// 	if(roughFeed.getUrlType().equals("reddit")){
-			// 		continue;
-			// 	}
-            //     try {
-            //         Feed feed = parser.parse();
-            //         for(Article article : feed.getArticleList()){
-			// 		String[] words = article.getText().split(" ");
-			// 			for(String word : words){
-			// 				if(heuristic.isEntity(word)){
-			// 					if(namedEntities.containsKey(word)){
-			// 						namedEntities.get(word).incFrequency();
-			// 					} else {
-			// 						EntidadNombrada namedEntity = new EntidadNombrada(word,heuristic.getCategory(word),1);
-			// 						namedEntities.put(word,namedEntity);
-			// 					}
-			// 				}
-			// 			}
-			// 		}
-
-            //     } catch(Exception e){
-            //         e.printStackTrace();
-            //         System.out.print("Invalid feed type");
-            //     }
-			// }
-			// // Llamar al prettyPrint de la tabla de entidades nombradas del feed.
-			// for(EntidadNombrada namedEntity : namedEntities.values()){
-			// 	namedEntity.prettyPrint();
-			// }
-
-			/*
-			Llamar a la heuristica para que compute las entidades nombradas de cada articulos del feed
-			LLamar al prettyPrint de la tabla de entidades nombradas del feed.
-			 */
-
+			// Llamar al Parser especifico para extraer los datos necesarios por la aplicacion, instanciar los feeds
+			Heuristic heuristica = new QuickHeuristic();
+			for(RoughFeed roughFeed : roughFeeds){
+                Feed feed = doParse(roughFeed);
+				// Extraer las entidades nombradas solo de los feeds RSS porque el texto de los feeds de Reddit bugea la heuristica
+				if(feed != null && roughFeed.getUrlType().equals("rss")){
+					for(Article article : feed.getArticleList()){
+						// Llamar a la heuristica y extraer las entidades nombradas
+						article.computeNamedEntities(heuristica);
+					}
+				}
+			}
+			// Imprimir las entidades nombradas
+			Article articuloVacio = new Article(null, null, null, null);
+			articuloVacio.prettyPrintNamedEntities();
+			EntidadNombrada entidadNombrada = new EntidadNombrada(null, null, 0);
+			System.out.println("Total de entidades nombradas: " + (entidadNombrada.getEntidadNombradaFrequency()-1));
 		}else {
 			printHelp();
 		}

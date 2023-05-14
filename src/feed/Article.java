@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import namedEntity.EntidadNombrada;
+import namedEntity.*;
 import namedEntity.heuristic.Heuristic;
 
 /*Esta clase modela el contenido de un articulo (ie, un item en el caso del rss feed) */
@@ -15,7 +15,7 @@ public class Article {
 	private Date publicationDate;
 	private String link;
 	
-	private List<EntidadNombrada> namedEntityList = new ArrayList<EntidadNombrada>();
+	private static List<EntidadNombrada> namedEntityList = new ArrayList<EntidadNombrada>();
 	
 	
 	public Article(String title, String text, Date publicationDate, String link) {
@@ -74,11 +74,11 @@ public class Article {
 		}
 		return null;
 	}
-	
+
 	public void computeNamedEntities(Heuristic h){
 		String text = this.getTitle() + " " +  this.getText();  
 			
-		String charsToRemove = ".,;:()'!?\n";
+		String charsToRemove = ".,;:()'!?&=\n";
 		for (char c : charsToRemove.toCharArray()) {
 			text = text.replace(String.valueOf(c), "");
 		}
@@ -87,12 +87,22 @@ public class Article {
 			if (h.isEntity(s)){
 				EntidadNombrada ne = this.getNamedEntity(s);
 				if (ne == null) {
-					this.namedEntityList.add(new EntidadNombrada(s, null,1));
+					ne = ne.createEntity(s, h.getCategory(s));
 				}else {
 					ne.incFrequency();
 				}
 			}
 		} 
+	}
+
+	public void prettyPrintNamedEntities() {
+		System.out.println("**********************************************************************************************");
+		System.out.println("Named Entities: ");
+		System.out.println("**********************************************************************************************");
+		for (EntidadNombrada n: namedEntityList){
+			System.out.println(n.getName() + " " + n.getFrequency() + " " + n.getCategory());
+		}
+		System.out.println("**********************************************************************************************");
 	}
 
 	

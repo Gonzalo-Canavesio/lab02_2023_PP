@@ -1,5 +1,6 @@
 package namedEntity.heuristic;
 
+import namedEntity.*;
 import java.util.Map;
 
 public abstract class Heuristic {
@@ -21,8 +22,7 @@ public abstract class Heuristic {
 	public String getCategory(String entity){
 		return categoryMap.get(entity);
 	}
-	
-	
+
 	public abstract boolean isEntity(String word);
 		
 }
