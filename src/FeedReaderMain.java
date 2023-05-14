@@ -1,17 +1,10 @@
-import parser.*;
-import parser.feedParser.FeedParser;
 import parser.feedParser.RedditParser;
 import parser.feedParser.RssParser;
 import parser.subscriptionParser.JSONParser;
-import parser.subscriptionParser.SubscriptionParser;
 import subscription.*;
 import httpRequest.*;
-import namedEntity.EntidadNombrada;
-import namedEntity.heuristic.*;
 import feed.*;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 public class FeedReaderMain {
 
@@ -23,7 +16,6 @@ public class FeedReaderMain {
         if(roughFeed.getUrlType().equals("rss")){
             RssParser result = new RssParser();
 			return result.parse(roughFeed);
-			
         } else if (roughFeed.getUrlType().equals("reddit")){
             RedditParser result = new RedditParser();
 			return result.parse(roughFeed);
