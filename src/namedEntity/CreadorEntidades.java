@@ -1,9 +1,7 @@
 package namedEntity;
 import namedEntity.heuristic.Heuristic;
 import namedEntity.heuristic.QuickHeuristic;
-import java.lang.reflect.Field;
 import java.util.Map;
-import java.util.HashMap;
 
 
 public class CreadorEntidades {
