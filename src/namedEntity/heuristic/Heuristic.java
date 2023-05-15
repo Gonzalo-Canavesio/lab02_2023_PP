@@ -11,14 +11,133 @@ public abstract class Heuristic {
 		initializeEntityMap();
 	}
 	private void initializeEntityMap() {
-		entityMap.put("Messi", Map.of("categoria", "Apellido", "tema", "Futbol", "id", "10", "origen", "italiano"));
-		entityMap.put("Lionel", Map.of("categoria", "Nombre", "tema", "Futbol", "id", "10", "origen", "frances"));
-		entityMap.put("Spielberg", Map.of("categoria", "Apellido", "tema", "Cine", "id", "11", "origen", "aleman"));
-		entityMap.put("Steven", Map.of("categoria", "Nombre", "tema", "Cine", "id", "11", "origen", "griego"));
-		entityMap.put("Fernandez", Map.of("categoria", "Apellido", "tema", "Nacional", "id", "12", "origen", "español"));
-        entityMap.put("Manchester",Map.of("categoria","Ciudad","tema","Futbol", "id", "13", "pais", "Inglaterra", "capital", "", "poblacion", "530.300"));
-		entityMap.put("USA", Map.of("categoria", "Pais", "tema", "Cine", "id", "14", "capital", "Washington", "poblacion", "328.200.000"));
-		entityMap.put("Cordoba", Map.of("categoria", "Ciudad", "tema", "Nacional", "id", "15", "pais", "Argentina", "capital", "Cordoba", "poblacion", "1.330.023"));
+        // Apellido entries
+        entityMap.put("Trump", Map.of("categoria", "Apellido",
+         "tema", "Internacional",
+         "id", "1",
+         "origen", "estadounidense"));
+        entityMap.put("Musk", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "2",
+         "origen", "sudafricano"));
+        entityMap.put("Biden", Map.of("categoria", "Apellido",
+         "tema", "Internacional",
+         "id", "3",
+         "origen", "estadounidense"));
+        entityMap.put("Jefferson", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "4",
+         "origen", "estadounidense"));
+        entityMap.put("Kugler", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "5",
+         "origen", "desconocido"));
+        entityMap.put("Yaccarino", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "6",
+         "origen", "desconocido"));
+        entityMap.put("Licht", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "7",
+         "origen", "desconocido"));
+        entityMap.put("Ros", Map.of("categoria", "Apellido",
+         "tema", "Otro",
+         "id", "8",
+         "origen", "desconocido"));
+
+        // Nombre entries
+        entityMap.put("Elon", Map.of("categoria", "Nombre",
+         "tema", "Otro",
+         "id", "9",
+         "origen", "desconocido"));
+        entityMap.put("Philip", Map.of("categoria", "Nombre",
+         "tema", "Otro",
+         "id", "10",
+         "origen", "desconocido"));
+        entityMap.put("Adriana", Map.of("categoria", "Nombre",
+         "tema", "Otro",
+         "id", "11",
+         "origen", "desconocido"));
+        entityMap.put("Chris", Map.of("categoria", "Nombre",
+         "tema", "Otro",
+         "id", "12",
+         "origen", "desconocido"));
+        entityMap.put("Ana", Map.of("categoria", "Nombre",
+         "tema", "Otro",
+         "id", "13",
+         "origen", "desconocido"));
+        entityMap.put("Donald", Map.of("categoria", "Nombre",
+         "tema", "Internacional",
+         "id", "14",
+         "origen", "desconocido"));
+        entityMap.put("Jayson", Map.of("categoria", "Nombre",
+         "tema", "Otros",
+         "id", "15",
+         "origen", "desconocido"));
+
+        // Ciudad entries
+        entityMap.put("Washington", Map.of("categoria", "Ciudad",
+         "tema", "Internacional",
+         "id", "16",
+         "pais", "Estados Unidos", "capital", "Washington",
+         "poblacion", "705,749"));
+        entityMap.put("Slovenia", Map.of("categoria", "Ciudad",
+         "tema", "Otro",
+         "id", "17",
+         "pais", "Eslovenia",
+         "capital", "Liubliana",
+         "poblacion", "280,000"));
+        entityMap.put("Boston", Map.of("categoria", "Ciudad",
+         "tema", "Otro",
+         "id", "18",
+         "pais", "Estados Unidos", "capital", "Washington",
+         "poblacion", "694,583"));
+        entityMap.put("Chicago", Map.of("categoria", "Ciudad",
+         "tema", "Otro",
+         "id", "19",
+         "pais", "Estados Unidos", "capital", "Washington",
+         "poblacion", "2,705,994"));
+        entityMap.put("Houston", Map.of("categoria", "Ciudad",
+         "tema", "Otro",
+         "id", "20",
+         "pais", "Estados Unidos", "capital", "Washington",
+         "poblacion", "2,320,268"));
+
+		entityMap.put("Messi", Map.of("categoria", "Apellido",
+         "tema", "Futbol",
+         "id", "21",
+         "origen", "italiano"));
+		entityMap.put("Lionel", Map.of("categoria", "Nombre",
+         "tema", "Futbol",
+         "id", "21",
+         "origen", "frances"));
+		entityMap.put("Spielberg", Map.of("categoria", "Apellido",
+         "tema", "Cine",
+         "id", "22",
+         "origen", "aleman"));
+		entityMap.put("Steven", Map.of("categoria", "Nombre",
+         "tema", "Cine",
+         "id", "22",
+         "origen", "griego"));
+		entityMap.put("Fernandez", Map.of("categoria", "Apellido",
+         "tema", "Nacional",
+         "id", "23",
+         "origen", "español"));
+        entityMap.put("Manchester",Map.of("categoria","Ciudad","tema","Futbol", "id",
+         "24", "pais",
+         "Inglaterra", "capital",
+         "", "poblacion", "530.300"));
+		entityMap.put("USA", Map.of("categoria", "Pais",
+         "tema", "Internacional",
+         "id", "25",
+         "capital", "Washington",
+         "poblacion", "328.200.000"));
+		entityMap.put("Cordoba", Map.of("categoria", "Ciudad",
+         "tema", "Nacional",
+         "id", "26",
+         "pais", "Argentina",
+         "capital", "Cordoba",
+         "poblacion", "1.330.023"));
 	}
 
 	public String getCategory(String entity) {
