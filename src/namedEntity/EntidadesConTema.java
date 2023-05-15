@@ -9,7 +9,7 @@ class apellidoFutbol extends apellido implements Futbol{
         }
 }
 
-            
+
 class apellidoCine extends apellido implements Cine{
     static int apellidoCineFrequency = 0;
         apellidoCine(String name, String category, int frequency, String nc, int id, String origen){
@@ -18,7 +18,7 @@ class apellidoCine extends apellido implements Cine{
         }
 }
 
-            
+
 class apellidoNacional extends apellido implements Nacional{
     static int apellidoNacionalFrequency = 0;
         apellidoNacional(String name, String category, int frequency, String nc, int id, String origen){
@@ -27,7 +27,7 @@ class apellidoNacional extends apellido implements Nacional{
         }
 }
 
-            
+
 class nombreFutbol extends nombre implements Futbol{
     static int nombreFutbolFrequency = 0;
         nombreFutbol(String name, String category, int frequency, String nc, int id, String origen, String formasAlt){
@@ -36,7 +36,7 @@ class nombreFutbol extends nombre implements Futbol{
         }
 }
 
-            
+
 class nombreCine extends nombre implements Cine{
     static int nombreCineFrequency = 0;
         nombreCine(String name, String category, int frequency, String nc, int id, String origen, String formasAlt){
@@ -45,7 +45,7 @@ class nombreCine extends nombre implements Cine{
         }
 }
 
-            
+
 class nombreNacional extends nombre implements Nacional{
     static int nombreNacionalFrequency = 0;
         nombreNacional(String name, String category, int frequency, String nc, int id, String origen, String formasAlt){
@@ -54,7 +54,7 @@ class nombreNacional extends nombre implements Nacional{
         }
 }
 
-            
+
 class paisFutbol extends pais implements Futbol{
     static int paisFutbolFrequency = 0;
         paisFutbol(String name, String category, int frequency, String nc, int poblacion, String lenguaOficial){
@@ -63,7 +63,7 @@ class paisFutbol extends pais implements Futbol{
         }
 }
 
-            
+
 class paisCine extends pais implements Cine{
     static int paisCineFrequency = 0;
         paisCine(String name, String category, int frequency, String nc, int poblacion, String lenguaOficial){
@@ -72,7 +72,7 @@ class paisCine extends pais implements Cine{
         }
 }
 
-            
+
 class paisNacional extends pais implements Nacional{
     static int paisNacionalFrequency = 0;
         paisNacional(String name, String category, int frequency, String nc, int poblacion, String lenguaOficial){
@@ -81,7 +81,7 @@ class paisNacional extends pais implements Nacional{
         }
 }
 
-            
+
 class ciudadFutbol extends ciudad implements Futbol{
     static int ciudadFutbolFrequency = 0;
         ciudadFutbol(String name, String category, int frequency, String nc, String pais, String capital, int poblacion){
@@ -90,7 +90,7 @@ class ciudadFutbol extends ciudad implements Futbol{
         }
 }
 
-            
+
 class ciudadCine extends ciudad implements Cine{
     static int ciudadCineFrequency = 0;
         ciudadCine(String name, String category, int frequency, String nc, String pais, String capital, int poblacion){
@@ -99,7 +99,7 @@ class ciudadCine extends ciudad implements Cine{
         }
 }
 
-            
+
 class ciudadNacional extends ciudad implements Nacional{
     static int ciudadNacionalFrequency = 0;
         ciudadNacional(String name, String category, int frequency, String nc, String pais, String capital, int poblacion){
@@ -108,4 +108,76 @@ class ciudadNacional extends ciudad implements Nacional{
         }
 }
 
-            
+class apellidoInternacional extends apellido implements Internacional{
+    static int apellidoInternacionalFrequency = 0;
+        apellidoInternacional(String name, String category, int frequency, int id, String origen){
+            super(name, category, frequency, id, origen);
+            apellidoInternacionalFrequency++;
+        }
+}
+
+
+class apellidoOtro extends apellido implements Otro{
+    static int apellidoOtroFrequency = 0;
+        apellidoOtro(String name, String category, int frequency, int id, String origen){
+            super(name, category, frequency, id, origen);
+            apellidoOtroFrequency++;
+        }
+}
+
+
+class nombreInternacional extends nombre implements Internacional{
+    static int nombreInternacionalFrequency = 0;
+        nombreInternacional(String name, String category, int frequency, int id, String origen, String formasAlt){
+            super(name, category, frequency, id, origen, formasAlt);
+            nombreInternacionalFrequency++;
+        }
+}
+
+
+class nombreOtro extends nombre implements Otro{
+    static int nombreOtroFrequency = 0;
+        nombreOtro(String name, String category, int frequency, int id, String origen, String formasAlt){
+            super(name, category, frequency, id, origen, formasAlt);
+            nombreOtroFrequency++;
+        }
+}
+
+
+class paisInternacional extends pais implements Internacional{
+    static int paisInternacionalFrequency = 0;
+        paisInternacional(String name, String category, int frequency, int id, int poblacion, String lenguaOficial){
+            super(name, category, frequency, id, poblacion, lenguaOficial);
+            paisInternacionalFrequency++;
+        }
+}
+
+
+class paisOtro extends pais implements Otro{
+    static int paisOtroFrequency = 0;
+        paisOtro(String name, String category, int frequency, int id, int poblacion, String lenguaOficial){
+            super(name, category, frequency, id, poblacion, lenguaOficial);
+            paisOtroFrequency++;
+        }
+}
+
+
+class ciudadInternacional extends ciudad implements Internacional{
+    static int ciudadInternacionalFrequency = 0;
+        ciudadInternacional(String name, String category, int frequency, int id, pais pais, String capital, int poblacion){
+            super(name, category, frequency, id, pais, capital, poblacion);
+            ciudadInternacionalFrequency++;
+        }
+}
+
+
+class ciudadOtro extends ciudad implements Otro{
+    static int ciudadOtroFrequency = 0;
+        ciudadOtro(String name, String category, int frequency, int id, pais pais, String capital, int poblacion){
+            super(name, category, frequency, id, pais, capital, poblacion);
+            ciudadOtroFrequency++;
+        }
+}
+
+
+

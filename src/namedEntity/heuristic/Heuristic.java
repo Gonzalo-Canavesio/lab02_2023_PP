@@ -71,7 +71,7 @@ public abstract class Heuristic {
          "id", "14",
          "origen", "desconocido"));
         entityMap.put("Jayson", Map.of("categoria", "Nombre",
-         "tema", "Otros",
+         "tema", "Otro",
          "id", "15",
          "origen", "desconocido"));
 
