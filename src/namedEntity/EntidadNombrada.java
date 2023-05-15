@@ -103,6 +103,59 @@ public class EntidadNombrada {
 		}
 		return ne;
 	}
+
+public void reduceFrequency(){
+		this.frequency--;
+		EntidadNombradaFrequency--;
+	}
+
+	public void prettyPrintFrecuencias(){
+		System.out.println("**********************************************************************************************");
+		System.out.println("Frecuencias clases: ");
+		System.out.println("**********************************************************************************************");
+		System.out.println("Frecuencia total: " + EntidadNombradaFrequency);
+		System.out.println("Frecuencia de personas: " + persona.personaFrequency);
+		System.out.println("Frecuencia de lugares: " + lugar.lugarFrequency);
+		System.out.println("Frecuencia de organizaciones: " + organizacion.organizacionFrequency);
+		System.out.println("Frecuencia de productos: " + producto.productoFrequency);
+		System.out.println("Frecuencia de eventos: " + evento.eventoFrequency);
+		System.out.println("Frecuencia de fechas: " + fecha.fechaFrequency);
+		System.out.println("Frecuencia de otros: " + otro.otroFrequency);
+		System.out.println("**********************************************************************************************");
+		System.out.println("Frecuencias sublcases: ");
+		System.out.println("**********************************************************************************************");	
+		System.out.println("Frecuencia de nombres: " + nombre.nombreFrequency);
+		System.out.println("Frecuencia de apellidos: " + apellido.apellidoFrequency);
+		System.out.println("Frecuencia de titulos: " + titulo.tituloFrequency);
+		System.out.println("Frecuencia de pais: " + pais.paisFrequency);
+		System.out.println("Frecuencia de ciudad: " + ciudad.ciudadFrequency);
+		System.out.println("Frecuencia de direccion: " + direccion.direccionFrequency);
+		System.out.println("Frecuencia de OtrosLugares: " + OtroLugar.OtroLugarFrequency);
+		System.out.println("**********************************************************************************************");
+		System.out.println("Frecuencias subclases con temas: ");
+		System.out.println("**********************************************************************************************");
+		System.out.println("Frecuencia de apellidos futbol: " + apellidoFutbol.apellidoFutbolFrequency);
+		System.out.println("Frecuencia de apellidos cine: " + apellidoCine.apellidoCineFrequency);
+		System.out.println("Frecuencia de apellidos nacional: " + apellidoNacional.apellidoNacionalFrequency);
+		System.out.println("Frecuencia de nombres futbol: " + nombreFutbol.nombreFutbolFrequency);
+		System.out.println("Frecuencia de nombres cine: " + nombreCine.nombreCineFrequency);
+		System.out.println("Frecuencia de nombres nacional: " + nombreNacional.nombreNacionalFrequency);
+		System.out.println("Frecuencia de pais futbol: " + paisFutbol.paisFutbolFrequency);
+		System.out.println("Frecuencia de pais cine: " + paisCine.paisCineFrequency);
+		System.out.println("Frecuencia de pais nacional: " + paisNacional.paisNacionalFrequency);
+		System.out.println("Frecuencia de ciudad futbol: " + ciudadFutbol.ciudadFutbolFrequency);
+		System.out.println("Frecuencia de ciudad cine: " + ciudadCine.ciudadCineFrequency);
+		System.out.println("Frecuencia de ciudad nacional: " + ciudadNacional.ciudadNacionalFrequency);
+		
+
+
+		System.out.println("Frecuencia de titulos: " + titulo.tituloFrequency);
+
+		System.out.println("**********************************************************************************************");
+	}
 }
+
+
+
 
 
