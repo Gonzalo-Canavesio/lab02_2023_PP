@@ -49,6 +49,7 @@ public class EntidadNombrada {
 
 	public void incFrequency() {
 		this.frequency++;
+		EntidadNombradaFrequency++;
 	}
 
 	public int getEntidadNombradaFrequency() {
@@ -78,9 +79,11 @@ public class EntidadNombrada {
             } catch (IllegalAccessException e) {
                 fieldValue = "N/A";
             }
-
-            System.out.println(fieldName + ": " + fieldValue);
+			if(fieldName != "EntidadNombradaFrequency"){ 
+            	System.out.println(fieldName + ": " + fieldValue);
+			}
         }
+		System.out.println("**********************************************************************************************");
     }
 
 	public void setTema(String tema) {
@@ -133,11 +136,6 @@ public void reduceFrequency(){
 		System.out.println("Frecuencia de ciudad futbol: " + ciudadFutbol.ciudadFutbolFrequency);
 		System.out.println("Frecuencia de ciudad cine: " + ciudadCine.ciudadCineFrequency);
 		System.out.println("Frecuencia de ciudad nacional: " + ciudadNacional.ciudadNacionalFrequency);
-		
-
-
-		System.out.println("Frecuencia de titulos: " + titulo.tituloFrequency);
-
 		System.out.println("**********************************************************************************************");
 	}
 }

@@ -8,6 +8,11 @@ class apellido extends persona{
         this.origen = origen;
         apellidoFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        apellidoFrequency++;
+    }
 }
 
 class nombre extends persona{
@@ -20,6 +25,11 @@ class nombre extends persona{
         this.formasAlt = formasAlt;
         nombreFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        nombreFrequency++;
+    }
 }
 
 class titulo extends persona{
@@ -28,6 +38,11 @@ class titulo extends persona{
     titulo(String name, String category, int frequency, String nc, int id, String profesional) {
         super(name, category, frequency, nc, id);
         this.profesional = profesional;
+        tituloFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         tituloFrequency++;
     }
 }
@@ -40,6 +55,11 @@ class pais extends lugar{
         super(name, category, frequency, nc);
         this.poblacion = poblacion;
         this.lenguaOficial = lenguaOficial;
+        paisFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         paisFrequency++;
     }
 }
@@ -56,6 +76,11 @@ class ciudad extends lugar{
         this.poblacion = poblacion;
         ciudadFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        ciudadFrequency++;
+    }
 }
 
 class direccion extends lugar{
@@ -66,6 +91,11 @@ class direccion extends lugar{
         this.ciudad = ciudad;
         direccionFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        direccionFrequency++;
+    }
 }
 
 class OtroLugar extends lugar{
@@ -74,6 +104,11 @@ class OtroLugar extends lugar{
     OtroLugar(String name, String category, int frequency, String nc, String comments) {
         super(name, category, frequency, nc);
         this.comments = comments;
+        OtroLugarFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         OtroLugarFrequency++;
     }
 }

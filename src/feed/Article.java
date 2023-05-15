@@ -102,7 +102,7 @@ public class Article {
 		System.out.println("Named Entities: ");
 		System.out.println("**********************************************************************************************");
 		for (EntidadNombrada n: namedEntityList){
-			System.out.println(n.getName() + " " + n.getFrequency() + " " + n.getCategory());
+			n.prettyPrint();
 		}
 		System.out.println("**********************************************************************************************");
 	}

@@ -37,22 +37,46 @@ public class CreadorEntidades {
 				ne = new nombreNacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"), (String) data.get("formasAlt"));
 				ne.setTema(tema);
 			} else if(category == "Pais" && tema == "Futbol"){
-				ne = new paisFutbol(namedEntity, category, 1, nc, (int) data.get("poblacion"), (String) data.get("lenguaOficial"));
+				ne = new paisFutbol(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
 				ne.setTema(tema);
 			} else if(category == "Pais" && tema == "Cine"){
-				ne = new paisCine(namedEntity, category, 1, nc, (int) data.get("poblacion"), (String) data.get("lenguaOficial"));
+				ne = new paisCine(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
 				ne.setTema(tema);
 			} else if(category == "Pais" && tema == "Nacional"){
-				ne = new paisNacional(namedEntity, category, 1, nc, (int) data.get("poblacion"), (String) data.get("lenguaOficial"));
+				ne = new paisNacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
 				ne.setTema(tema);
 			} else if(category == "Ciudad" && tema == "Futbol"){
-				ne = new ciudadFutbol(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), (int) data.get("poblacion"));
+				ne = new ciudadFutbol(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
 				ne.setTema(tema);
 			} else if(category == "Ciudad" && tema == "Cine"){
-				ne = new ciudadCine(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), (int) data.get("poblacion"));
+				ne = new ciudadCine(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
 				ne.setTema(tema);
 			} else if(category == "Ciudad" && tema == "Cine"){
-				ne = new ciudadNacional(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), (int) data.get("poblacion"));
+				ne = new ciudadNacional(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
+				ne.setTema(tema);
+			} else if(category == "Apellido" && tema == "Internacional"){
+				ne = new apellidoInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));
+				ne.setTema(tema);
+			} else if(category == "Nombre" && tema == "Internacional"){
+				ne = new nombreInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"), (String) data.get("formasAlt"));
+				ne.setTema(tema);
+			} else if(category == "Apellido" && tema == "Otro"){
+				ne = new apellidoOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));
+				ne.setTema(tema);
+			} else if(category == "Nombre" && tema == "Otro"){
+				ne = new nombreOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"), (String) data.get("formasAlt"));
+				ne.setTema(tema);
+			} else if(category == "Pais" && tema == "Internacional"){
+				ne = new paisInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
+				ne.setTema(tema);
+			} else if(category == "Pais" && tema == "Otro"){
+				ne = new paisOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
+				ne.setTema(tema);
+			} else if(category == "Ciudad" && tema == "Internacional"){
+				ne = new ciudadInternacional(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
+				ne.setTema(tema);
+			} else if(category == "Ciudad" && tema == "Otro"){
+				ne = new ciudadOtro(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
 				ne.setTema(tema);
 			} else if(category == "Apellido"){
 				ne = new apellido(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));
@@ -64,10 +88,10 @@ public class CreadorEntidades {
 				ne = new titulo(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")),(String) data.get("Profesional"));
 				ne.setTema(tema);
 			} else if(category == "Pais"){
-				ne = new pais(namedEntity, category, 1, nc, (int) data.get("poblacion"), (String) data.get("lenguaOficial"));
+				ne = new pais(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
 				ne.setTema(tema);
 			} else if(category == "Ciudad"){
-				ne = new ciudad(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), (int) data.get("poblacion"));
+				ne = new ciudad(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
 				ne.setTema(tema);
 			} else if(category == "Direccion"){
 				ne = new direccion(namedEntity, category, 1, nc, (String) data.get("ciudad"));
@@ -81,13 +105,13 @@ public class CreadorEntidades {
 			} else if(category == "Lugar"){
 				ne = new lugar(namedEntity, category, 1, nc);
 			} else if(category == "Organizacion"){
-				ne = new organizacion(namedEntity, category, 1, nc, (int) data.get("NroMiembros"), (String) data.get("tipoOrg"));
+				ne = new organizacion(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("NroMiembros")), (String) data.get("tipoOrg"));
 				ne.setTema(tema);
 			} else if(category == "Producto"){
 				ne = new producto(namedEntity, category, 1, nc, (String) data.get("Comercial"), (String) data.get("Productor"));
 				ne.setTema(tema);
 			} else if(category == "Evento"){
-				ne = new evento(namedEntity, category, 1, nc, (String) data.get("fecha"), (int) data.get("recurrente"));
+				ne = new evento(namedEntity, category, 1, nc, (String) data.get("fecha"), Integer.parseInt((String) data.get("recurrente")));
 				ne.setTema(tema);
 			} else if(category == "Fecha"){
 				ne = new fecha(namedEntity, category, 1, nc, (String) data.get("fechaPrecisa"));

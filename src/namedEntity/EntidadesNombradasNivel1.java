@@ -8,12 +8,22 @@ class persona extends EntidadNombrada{
         this.id = id;
         personaFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        personaFrequency++;
+    }
 }
 
 class lugar extends EntidadNombrada{
     static int lugarFrequency = 0;
     lugar(String name, String category, int frequency, String nc) {
         super(name, category, frequency, nc);
+        lugarFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         lugarFrequency++;
     }
 }
@@ -28,6 +38,11 @@ class organizacion extends EntidadNombrada{
         this.tipoOrg = tipoOrg;
         organizacionFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        organizacionFrequency++;
+    }
 }
 
 class producto extends EntidadNombrada{
@@ -38,6 +53,11 @@ class producto extends EntidadNombrada{
         super(name, category, frequency, nc);
         this.Comercial = Comercial;
         this.Productor = Productor;
+        productoFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         productoFrequency++;
     }
 }
@@ -52,6 +72,11 @@ class evento extends EntidadNombrada{
         this.recurrente = recurrente;
         eventoFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        eventoFrequency++;
+    }
 }
 
 class fecha extends EntidadNombrada{
@@ -62,6 +87,11 @@ class fecha extends EntidadNombrada{
         this.fechaPrecisa = fechaPrecisa;
         fechaFrequency++;
     }
+
+    public void incFrequency() {
+        super.incFrequency();
+        fechaFrequency++;
+    }
 }
 
 class otro extends EntidadNombrada {
@@ -70,6 +100,11 @@ class otro extends EntidadNombrada {
     otro(String name, String category, int frequency, String nc, String Comments) {
         super(name, category, frequency, nc);
         this.Comments = Comments;
+        otroFrequency++;
+    }
+
+    public void incFrequency() {
+        super.incFrequency();
         otroFrequency++;
     }
 }
