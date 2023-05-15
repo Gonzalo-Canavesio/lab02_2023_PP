@@ -11,7 +11,6 @@ public class CreadorEntidades {
 		EntidadNombrada ne = null;
 		Heuristic h = new QuickHeuristic(); // Da igual que heuristica se use, ya que solo se usa para obtener la categoria
 		Map<String, Object> data = h.getData(namedEntity);
-		// TODO: Crear una entidad nombrada de la categoria correspondiente y devolverla (Ver como hacer para que el constructor no de problema)
 		if(data == null){
 			ne = new EntidadNombrada(namedEntity, "unknown", 1, "unknown");
 		} else {
@@ -53,30 +52,6 @@ public class CreadorEntidades {
 				ne.setTema(tema);
 			} else if(category == "Ciudad" && tema == "Cine"){
 				ne = new ciudadNacional(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
-				ne.setTema(tema);
-			} else if(category == "Apellido" && tema == "Internacional"){
-				ne = new apellidoInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));
-				ne.setTema(tema);
-			} else if(category == "Nombre" && tema == "Internacional"){
-				ne = new nombreInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"), (String) data.get("formasAlt"));
-				ne.setTema(tema);
-			} else if(category == "Apellido" && tema == "Otro"){
-				ne = new apellidoOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));
-				ne.setTema(tema);
-			} else if(category == "Nombre" && tema == "Otro"){
-				ne = new nombreOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"), (String) data.get("formasAlt"));
-				ne.setTema(tema);
-			} else if(category == "Pais" && tema == "Internacional"){
-				ne = new paisInternacional(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
-				ne.setTema(tema);
-			} else if(category == "Pais" && tema == "Otro"){
-				ne = new paisOtro(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("poblacion")), (String) data.get("lenguaOficial"));
-				ne.setTema(tema);
-			} else if(category == "Ciudad" && tema == "Internacional"){
-				ne = new ciudadInternacional(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
-				ne.setTema(tema);
-			} else if(category == "Ciudad" && tema == "Otro"){
-				ne = new ciudadOtro(namedEntity, category, 1, nc, (String) data.get("Pais"), (String) data.get("Capital"), Integer.parseInt((String) data.get("poblacion")));
 				ne.setTema(tema);
 			} else if(category == "Apellido"){
 				ne = new apellido(namedEntity, category, 1, nc, Integer.parseInt((String) data.get("id")), (String) data.get("origen"));

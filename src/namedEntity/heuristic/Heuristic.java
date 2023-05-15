@@ -71,7 +71,7 @@ public abstract class Heuristic {
          "id", "14",
          "origen", "desconocido"));
         entityMap.put("Jayson", Map.of("categoria", "Nombre",
-         "tema", "Otro",
+         "tema", "Otros",
          "id", "15",
          "origen", "desconocido"));
 
@@ -80,28 +80,28 @@ public abstract class Heuristic {
          "tema", "Internacional",
          "id", "16",
          "pais", "Estados Unidos", "capital", "Washington",
-         "poblacion", "705,749"));
+         "poblacion", "705749"));
         entityMap.put("Slovenia", Map.of("categoria", "Ciudad",
          "tema", "Otro",
          "id", "17",
          "pais", "Eslovenia",
          "capital", "Liubliana",
-         "poblacion", "280,000"));
+         "poblacion", "280000"));
         entityMap.put("Boston", Map.of("categoria", "Ciudad",
          "tema", "Otro",
          "id", "18",
          "pais", "Estados Unidos", "capital", "Washington",
-         "poblacion", "694,583"));
+         "poblacion", "694583"));
         entityMap.put("Chicago", Map.of("categoria", "Ciudad",
          "tema", "Otro",
          "id", "19",
          "pais", "Estados Unidos", "capital", "Washington",
-         "poblacion", "2,705,994"));
+         "poblacion", "2705994"));
         entityMap.put("Houston", Map.of("categoria", "Ciudad",
          "tema", "Otro",
          "id", "20",
          "pais", "Estados Unidos", "capital", "Washington",
-         "poblacion", "2,320,268"));
+         "poblacion", "2320268"));
 
 		entityMap.put("Messi", Map.of("categoria", "Apellido",
          "tema", "Futbol",
@@ -126,18 +126,18 @@ public abstract class Heuristic {
         entityMap.put("Manchester",Map.of("categoria","Ciudad","tema","Futbol", "id",
          "24", "pais",
          "Inglaterra", "capital",
-         "", "poblacion", "530.300"));
+         "", "poblacion", "530300"));
 		entityMap.put("USA", Map.of("categoria", "Pais",
          "tema", "Internacional",
          "id", "25",
          "capital", "Washington",
-         "poblacion", "328.200.000"));
+         "poblacion", "328200000"));
 		entityMap.put("Cordoba", Map.of("categoria", "Ciudad",
          "tema", "Nacional",
          "id", "26",
          "pais", "Argentina",
          "capital", "Cordoba",
-         "poblacion", "1.330.023"));
+         "poblacion", "1330023"));
 	}
 
 	public Map<String, Object> getData(String entity) {
