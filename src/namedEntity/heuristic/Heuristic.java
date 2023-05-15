@@ -11,23 +11,14 @@ public abstract class Heuristic {
 		initializeEntityMap();
 	}
 	private void initializeEntityMap() {
-		// Rellene el mapa de entidades con entidades, su categoría y otros datos
-		entityMap.put("Microsoft", createEntityData("Company"));
-		entityMap.put("Apple", createEntityData("Company"));
-		entityMap.put("Google", createEntityData("Company"));
-		entityMap.put("Musk", createEntityData("Person"));
-		entityMap.put("Biden", createEntityData("Person"));
-		entityMap.put("Trump", createEntityData("Person"));
-		entityMap.put("Messi", createEntityData("Person"));
-		entityMap.put("Federer", createEntityData("Person"));
-		entityMap.put("USA", createEntityData("Country"));
-		entityMap.put("Russia", createEntityData("Country"));
-	}
-
-	private Map<String, Object> createEntityData(String category) {
-		Map<String, Object> entityData = new HashMap<>();
-		entityData.put("category", category);
-		return entityData;
+		entityMap.put("Messi", Map.of("categoria", "Apellido", "tema", "Futbol", "id", "10", "origen", "italiano"));
+		entityMap.put("Lionel", Map.of("categoria", "Nombre", "tema", "Futbol", "id", "10", "origen", "frances"));
+		entityMap.put("Spielberg", Map.of("categoria", "Apellido", "tema", "Cine", "id", "11", "origen", "aleman"));
+		entityMap.put("Steven", Map.of("categoria", "Nombre", "tema", "Cine", "id", "11", "origen", "griego"));
+		entityMap.put("Fernandez", Map.of("categoria", "Apellido", "tema", "Nacional", "id", "12", "origen", "español"));
+        entityMap.put("Manchester",Map.of("categoria","Ciudad","tema","Futbol", "id", "13", "pais", "Inglaterra", "capital", "", "poblacion", "530.300"));
+		entityMap.put("USA", Map.of("categoria", "Pais", "tema", "Cine", "id", "14", "capital", "Washington", "poblacion", "328.200.000"));
+		entityMap.put("Cordoba", Map.of("categoria", "Ciudad", "tema", "Nacional", "id", "15", "pais", "Argentina", "capital", "Cordoba", "poblacion", "1.330.023"));
 	}
 
 	public String getCategory(String entity) {
@@ -39,5 +30,5 @@ public abstract class Heuristic {
 	}
 
 	public abstract boolean isEntity(String word);
-		
+
 }
