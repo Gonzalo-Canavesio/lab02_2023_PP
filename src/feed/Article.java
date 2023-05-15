@@ -86,10 +86,12 @@ public class Article {
 		for (String s: text.split(" ")) {
 			if (h.isEntity(s)){
 				EntidadNombrada ne = this.getNamedEntity(s);
-				if (ne == null) {
-					ne = ne.createEntity(s);
-				}else {
+				if (ne != null) {
 					ne.incFrequency();
+				}else {
+					CreadorEntidades ce = new CreadorEntidades();
+					ne = ce.createEntity(s);
+					namedEntityList.add(ne);
 				}
 			}
 		} 

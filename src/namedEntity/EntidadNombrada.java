@@ -3,6 +3,7 @@ package namedEntity;
 import namedEntity.heuristic.Heuristic;
 import namedEntity.heuristic.QuickHeuristic;
 import java.lang.reflect.Field;
+import java.util.Map;
 
 /*Esta clase modela la nocion de entidad nombrada*/
 
@@ -13,11 +14,12 @@ public class EntidadNombrada {
 	String tema;
 	static protected int EntidadNombradaFrequency = 0;
 
-	public EntidadNombrada(String name, String category, int frequency) {
+	public EntidadNombrada(String name, String category, int frequency, String nombre_canonico) {
 		super();
 		this.name = name;
 		this.category = category;
 		this.frequency = frequency;
+		this.tema = nombre_canonico;
 		EntidadNombradaFrequency++;
 	}
 
@@ -87,21 +89,6 @@ public class EntidadNombrada {
 
 	public String getTema() {
         return this.tema;
-	}
-
-	public EntidadNombrada createEntity(String namedEntity){
-		EntidadNombrada ne;
-		Heuristic h = new QuickHeuristic(); // Da igual que heuristica se use, ya que solo se usa para obtener la categoria
-		String category = h.getCategory(namedEntity);
-		// TODO: Crear una entidad nombrada de la categoria correspondiente y devolverla (Ver como hacer para que el constructor no de problema)
-		if(category == null){
-			ne = new EntidadNombrada(namedEntity, "unknown", 1);
-		} else if(category == "persona"){
-			ne = new persona(namedEntity, "persona", 1, 0);
-		} else {
-			ne = new EntidadNombrada(namedEntity, "unknown", 1);
-		}
-		return ne;
 	}
 
 public void reduceFrequency(){

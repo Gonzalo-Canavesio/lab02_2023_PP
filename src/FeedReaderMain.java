@@ -30,7 +30,7 @@ public class FeedReaderMain {
 
 	public static void main(String[] args) {
 		System.out.println("************* FeedReader version 1.0 *************");
-		if (args.length == 0) {
+		if (args.length == 1) {
 
 			// Leer el archivo de suscription por defecto y parsearlo
 			JSONParser subscriptionParser = new JSONParser();
@@ -48,7 +48,7 @@ public class FeedReaderMain {
 				}
 			}
 
-		} else if (args.length == 1 && args[0].equals("-ne")){
+		} else if (args.length == 0){
 
 			// Leer el archivo de suscription por defecto y parsearlo
 			JSONParser subscriptionParser = new JSONParser();
@@ -59,7 +59,7 @@ public class FeedReaderMain {
 			List<RoughFeed> roughFeeds = httpRequester.getFeeds();
 
 			// Llamar al Parser especifico para extraer los datos necesarios por la aplicacion, instanciar los feeds
-			Heuristic heuristica = new QuickHeuristic();
+			Heuristic heuristica = new QuickHeuristic(); // Si se quiere cambiar la heuristica, modificar esta linea
 			for(RoughFeed roughFeed : roughFeeds){
                 Feed feed = doParse(roughFeed);
 				// Extraer las entidades nombradas solo de los feeds RSS porque el texto de los feeds de Reddit bugea la heuristica
@@ -73,7 +73,7 @@ public class FeedReaderMain {
 			// Imprimir las entidades nombradas
 			Article articuloVacio = new Article(null, null, null, null);
 			articuloVacio.prettyPrintNamedEntities();	
-			EntidadNombrada prettyPrint = new EntidadNombrada(null, null, 1);
+			EntidadNombrada prettyPrint = new EntidadNombrada(null, null, 1, null);
 			prettyPrint.reduceFrequency();
 			prettyPrint.prettyPrintFrecuencias();
 		}else {

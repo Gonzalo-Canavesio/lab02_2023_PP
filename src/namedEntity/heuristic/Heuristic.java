@@ -140,12 +140,8 @@ public abstract class Heuristic {
          "poblacion", "1.330.023"));
 	}
 
-	public String getCategory(String entity) {
-		Map<String, Object> entityData = entityMap.get(entity);
-		if (entityData != null) {
-			return (String) entityData.get("category");
-		}
-		return null;
+	public Map<String, Object> getData(String entity) {
+		return entityMap.get(entity);
 	}
 
 	public abstract boolean isEntity(String word);
